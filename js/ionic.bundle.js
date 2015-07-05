@@ -3009,10 +3009,6 @@ function tapEnableTouchEvents() {
 }
 
 function tapIgnoreEvent(e) {
-  if(window.parent) {
-    window.parent.document.getElementById('iframe').contentWindow.focus();
-  }
-  ele.focus && ele.focus();
   if (e.isTapHandled) return true;
   e.isTapHandled = true;
 
@@ -3023,6 +3019,11 @@ function tapIgnoreEvent(e) {
 }
 
 function tapHandleFocus(ele) {
+  if(window.parent) {
+    window.parent.document.getElementById('iframe').contentWindow.focus();
+  }
+  
+  ele.focus && ele.focus();
   tapTouchFocusedInput = null;
 
   var triggerFocusIn = false;
