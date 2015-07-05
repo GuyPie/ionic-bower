@@ -3019,10 +3019,14 @@ function tapIgnoreEvent(e) {
 }
 
 function tapHandleFocus(ele) {
-  if(window.parent) {
-    window.parent.document.getElementById('iframe').contentWindow.focus();
+  if (window.parent) {
+    var iframe = window.parent.document.getElementById('iframe');
+
+    if (iframe) {
+      iframe.contentWindow.focus();
+    }
   }
-  
+
   ele.focus && ele.focus();
   tapTouchFocusedInput = null;
 
